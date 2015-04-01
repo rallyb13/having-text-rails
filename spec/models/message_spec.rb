@@ -1,8 +1,11 @@
+# MODEL SPEC
 require 'rails_helper'
 
 describe Message do
-  it 'does not save the message if twilio gives an error' do
-    message = Message.new(:body => 'heyo', :to => '1111111', :from => '5623750778')
-    message.save.should be false
-  end
+
+  it { should belong_to :user }
+  it { should validate_presence_of :body }
+  it { should validate_presence_of :to }
+  it { should validate_presence_of :from }
+
 end

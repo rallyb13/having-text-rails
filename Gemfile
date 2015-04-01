@@ -28,4 +28,6 @@ group :test do
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'launchy'
+  gem 'vcr'
+  gem 'webmock'
 end

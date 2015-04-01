@@ -1,5 +1,9 @@
 class Message < ActiveRecord::Base
   before_create :send_message
+  belongs_to :user
+  validates :body, :presence => true
+  validates :to, :presence => true
+  validates :from, :presence => true
 
 private
 
@@ -12,7 +16,9 @@ private
         :password => ENV['TWILIO_AUTH_TOKEN'],
         :payload => { :Body => body, :To => to, :From => from }
       ).execute
-    rescue
+    rescue RestClient::BadRequest => error
+      message = JSON.parse(error.response) ['message']
+      errors.add(:base, message)
       false
     end
   end
