@@ -1,0 +1,14 @@
+<h3>My Profile Page</h3>
+
+<%= @user.email %>
+
+<p>Having Text user since <%= @user.created_at %></p>
+
+
+
+<%= link_to 'Add New Contact', new_user_contact_path(@user) %>
+
+
+<p>
+  link to my contacts
+</p>
