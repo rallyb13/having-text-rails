@@ -10,7 +10,7 @@ describe 'add a new contact process' do
     fill_in "Phone", with: "1234567890"
     fill_in "Email", with: "achybreaky@notthatsong.com"
     click_on "Add Contact"
-    expect(page).to have_content "successfully"
+    expect(page).to have_content "billy joebob"
   end
 
   # it 'throws an error if phone field is left blank' do

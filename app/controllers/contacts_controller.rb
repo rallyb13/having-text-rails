@@ -10,10 +10,11 @@ class ContactsController < ApplicationController
     @contact = @user.contacts.new(contact_params)
     @contact.user_id = current_user.id
     if @contact.save
-      flash[:notice] = "Contact saved successfully."
-      redirect_to user_path(@user)
-    else
-      render :new
+      flash[:notice] = "You have successfully saved your contact."
+      respond_to do |format|
+        format.html { redirect_to user_path(@user) }
+        format.js
+      end
     end
   end
 

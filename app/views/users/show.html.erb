@@ -6,9 +6,9 @@
 
 
 
-<%= link_to 'Add New Contact', new_user_contact_path(@user) %>
+<%= link_to 'Add New Contact', new_user_contact_path(@user), id: "new_contact_link", remote: true %>
 
-
-<p>
-  link to my contacts
-</p>
+<h5>Contacts</h5>
+<div id="show_contacts">
+  <%= render @contacts %>
+</div>
